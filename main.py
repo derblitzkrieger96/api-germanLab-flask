@@ -126,5 +126,13 @@ def get_question(level, question_number):
     else:
         return jsonify({"error": "Question not found"}), 404
 
+# New route to get all questions for a level
+@app.route('/quiz/<level>/all', methods=['GET'])
+def get_all_questions(level):
+    if level in quiz:
+        return jsonify(quiz[level]['questions'])
+    else:
+        return jsonify({"error": "Level not found"}), 404
+
 if __name__ == '__main__':
     app.run(debug=True)
