@@ -1,8 +1,9 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 import json
 
 app = Flask(__name__)
-
+CORS(app)
 # Define your quiz data here
 quiz_json = '''
 {
